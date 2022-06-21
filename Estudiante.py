@@ -1,4 +1,3 @@
-from turtle import settiltangle
 from Persona import Persona
 
 class Estudiante(Persona):
