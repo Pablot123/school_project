@@ -7,6 +7,7 @@ class Escuela:
         self._alumnos = alumnos #estos se pueden cambiar
         self._materias = materias #estos se pueden cambiar
     
+    # __del__ es el metodo desstructor
     #Getters and Setters
     @property
     def id(self):

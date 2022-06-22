@@ -3,7 +3,7 @@ from Persona import Persona
 class Profesro(Persona):
 
     def __init__(self, nombre, codigo, id, materia, salario) -> None:
-        super().__init__(nombre, codigo, id)
+        Persona.__init__(self, nombre, codigo, id)
         self._materia = materia
         self._salario = salario
 

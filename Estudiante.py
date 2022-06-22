@@ -2,7 +2,7 @@ from Persona import Persona
 
 class Estudiante(Persona):
     def __init__(self, nombre, codigo, id, grado, materias, notas) -> None:
-        super().__init__(nombre, codigo, id)
+        Persona.__init__(self, nombre, codigo, id)
         self._grado = grado
         self._materias = materias
         self._notas = notas
