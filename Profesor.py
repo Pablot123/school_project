@@ -9,10 +9,11 @@ El profesor tendra los metodos getters and setters ademas podra colocarle la not
 a un alumno especifico y podra ver la lista de alumnos que tiene en su clase
 '''
 
-class Profesro(Persona):
+class Profesor(Persona):
 
-    def __init__(self, nombre, codigo, id, materia, salario) -> None:
+    def __init__(self, nombre, codigo, id, materia,grado, salario) -> None:
         Persona.__init__(self, nombre, codigo, id)
+        self._grado = grado
         self._materia = materia
         self._salario = salario
 
@@ -29,3 +30,14 @@ class Profesro(Persona):
     @salario.setter
     def salario(self, salario):
         self._salario = salario
+    
+    @property
+    def grado(self):
+        return self._grado
+    
+    
+    def colocar_nota(self, estudiante, nota):
+        estudiante.notas.append((self.materia, nota))
+
+    def lista_alumnos(self):
+        pass

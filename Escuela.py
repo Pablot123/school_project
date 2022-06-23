@@ -1,3 +1,6 @@
+'''
+
+'''
 class Escuela:
     def __init__(self, id, nombre, direccion, profesores, alumnos, materias) -> None:
         self.__id = id # llave primaria

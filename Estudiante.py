@@ -9,28 +9,33 @@ y el promedio que tiene
 '''
 
 class Estudiante(Persona):
-    def __init__(self, nombre, codigo, id, grado, materias) -> None:
+    def __init__(self, nombre, codigo, id, grado, materias, notas=[]) -> None:
         Persona.__init__(self, nombre, codigo, id)
         self._grado = grado
         self._materias = materias
+        self._notas = notas
 
     @property
     def grado(self):
         return self._grado
-    @grado.setter
-    def grado(self, grado):
-        self._grado = grado
+
     
     @property
     def materias(self):
         return self._materias
-    @materias.setter
-    def materias(self, materias):
-        self._materias = materias
-    
-    def promedio_notas():
-        pass
 
+    
+    @property
+    def notas(self):
+        return self._notas
+    #Le quite el metodo set a notas para que el estudiante no pueda cambiar la nota
+
+    def promedio_notas(self):
+        promedio = 0
+        for materia, nota in self.notas:
+            promedio +=nota
+        promedio = promedio/len(self.notas)
+        print(f'Su promedio de notas es: {promedio}')
 
 if __name__ == '__main__':
     pass
