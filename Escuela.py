@@ -62,3 +62,6 @@ class Escuela:
 
     def eliminar_materia():
         pass
+    def generar_boletin():
+        # mirar manejo de archivos 
+        pass
