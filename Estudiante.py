@@ -32,7 +32,7 @@ class Estudiante(Persona):
 
     def promedio_notas(self):
         promedio = 0
-        for materia, nota in self.notas:
+        for _ , nota in self.notas:
             promedio +=nota
         promedio = promedio/len(self.notas)
         print(f'Su promedio de notas es: {promedio}')

@@ -1,0 +1,49 @@
+CREATE DATABASE escuela;
+SHOW DATABASES;
+USE escuela;
+
+CREATE TABLE Estudiante (
+	CODIGO INT NOT NULL PRIMARY KEY,
+    ID INT(20),
+	NOMBRE CHAR(25),
+	APELLIDO CHAR(25),
+	GRADE INT(15),
+	MATERIAS CHAR(100),
+	NOTAS CHAR(100)
+);
+
+INSERT INTO Estudiante 
+	(CODIGO, ID, NOMBRE, APELLIDO, GRADE, MATERIAS, NOTAS) VALUES
+		(001, 123, 'Monika', 'Arora', 10, '["Biologia","Matematicas","Quimica"]', '[]'),
+		(002, 456, 'Niharika', 'Verma', 8, '["Matematicas", "Sociales", "Ingles"]', '[]'),
+		(003, 789, 'Vishal', 'Singhal', 3, '["Español","Matematicas","Biologia"]', '[]'),
+		(004, 101, 'Amitabh', 'Singh', 5, '["Quimica","Fisica","Español"]', '[]');
+
+CREATE TABLE Profesor (
+	CODIGO INT PRIMARY KEY,
+	ID INT(10),
+	NOMBRE CHAR(12),
+    APELLIDO CHAR(12),
+    GRADE INT(10),
+    MATERIA CHAR(20),
+    SALARIO INT(30)
+);
+
+INSERT INTO Profesor 
+	(CODIGO, ID, NOMBRE, APELLIDO, GRADE, MATERIA, SALARIO) VALUES
+		(101, 454, 'Pablo','Tamayo', 11, 'Matematica',2000000),
+		(102, 334,'Andres', 'Ochoa', 3, 'Biologia', 15000000),
+		(103, 898, 'Cristina', 'Aguilera', 5, 'Musica', 20000000);
+CREATE TABLE Materia (
+	CODIGO INT,
+	NOMBRE CHAR(25)
+);
+
+INSERT INTO Materia
+	(CODIGO, NOMBRE) VALUES
+ (201, 'Biologia'),
+ (202, 'Matematicas'),
+ (208, 'Sociales'),
+ (205, 'Musica'),
+ (204, 'Quimica'),
+ (207, 'Fisica');
