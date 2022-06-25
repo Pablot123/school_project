@@ -13,3 +13,13 @@ class DAO:
             )
         except Error as ex:
             print(f'error al intentar la conexion: {ex}')
+
+    def lista_estudiantes(self):
+        if self.conexion.is_connected():
+            try:
+                cursor = self.conexion.cursor()
+                cursor.execute('SELECT * FROM Estudiante ORDER BY codigo')
+                resultados = cursor.fetchall()
+                return resultados
+            except Error as ex:
+                print(f'error al intentar conexion: {ex}')

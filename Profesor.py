@@ -11,7 +11,7 @@ a un alumno especifico y podra ver la lista de alumnos que tiene en su clase
 
 class Profesor(Persona):
 
-    def __init__(self, nombre, codigo, id, materia,grado, salario) -> None:
+    def __init__(self, nombre, codigo, id, materia, grado, salario) -> None:
         Persona.__init__(self, nombre, codigo, id)
         self._grado = grado
         self._materia = materia
