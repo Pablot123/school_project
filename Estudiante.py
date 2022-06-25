@@ -1,3 +1,6 @@
+from hashlib import new
+from select import select
+from Materia import Materia
 from Persona import Persona
 '''
 La clase estudiantes pretende crear al objeto estudiantes, asignandole el nombre
@@ -13,7 +16,7 @@ class Estudiante(Persona):
         Persona.__init__(self, nombre, codigo, id)
         self._grado = grado
         self._materias = materias
-        self._notas = notas
+        self._notas = notas #Las notas vienen por tuplas 
 
     @property
     def grado(self):
@@ -36,6 +39,12 @@ class Estudiante(Persona):
             promedio +=nota
         promedio = promedio/len(self.notas)
         print(f'Su promedio de notas es: {promedio}')
+    
+    def __str__(self) -> str:
+        estudiante=f"El estudiante {self.nombre} del grado {self.grado} con las materias {self.materias} "
+        return estudiante
 
 if __name__ == '__main__':
+    estudiante1 = Estudiante("Juan",1234,5678,8,["matematica","biologia"],[("matematica",4),("biologia",5)])
+    print(estudiante1)
     pass
