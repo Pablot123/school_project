@@ -34,6 +34,17 @@ class DAO:
                 print('Registro de estudiante, exitoso')
             except Error as ex:
                 print(f'error al intentar conexion: {ex}')
+    
+    def eliminar_estudiante(self, cod):
+        if self.conexion.is_connected():
+            try:
+                cursor = self.conexion.cursor()
+                sql = f'DELETE FROM estudiante WHERE CODIGO = {cod}'
+                cursor.execute(sql)
+                self.conexion.commit()
+                print('Se ha eliminado estudiante de forma exitosa')
+            except Error as ex:
+                print(f'error al intentar conexion: {ex}')
     #------CRUD PROFESORES---------
     def lista_profesores(self):
         if self.conexion.is_connected():
@@ -53,6 +64,17 @@ class DAO:
                 cursor.execute(sql)
                 self.conexion.commit()
                 print('Registro de profesor, exitoso')
+            except Error as ex:
+                print(f'error al intentar conexion: {ex}')
+    
+    def eliminar_profesor(self, cod):
+        if self.conexion.is_connected():
+            try:
+                cursor = self.conexion.cursor()
+                sql = f'DELETE FROM profesor WHERE CODIGO = {cod}'
+                cursor.execute(sql)
+                self.conexion.commit()
+                print('Se ha eliminado estudiante de forma exitosa')
             except Error as ex:
                 print(f'error al intentar conexion: {ex}')
     

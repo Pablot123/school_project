@@ -54,22 +54,24 @@ class Escuela:
         dao = DAO()
         dao.agregar_profesor(profesor)
 
-    def eliminar_profesor():
-        pass
+    def eliminar_profesor(self):
+        dao = DAO()
+        #Mostar una lista con los estudiantes, viendo su codigo
+        cod_profesor_del = int(input('ingrese codigo del profesor a eliminar: '))
+        dao.eliminar_profesor(cod_profesor_del)
 
     def matricular_estudiante(self, estudiante):
         dao = DAO()
         dao.agregar_estudiante(estudiante)
         
 
-    def expulsar_estudiante():
-        pass
+    def expulsar_estudiante(self):
+        dao = DAO()
+        #Mostar una lista con los estudiantes, viendo su codigo
+        cod_estudiante_del = int(input('ingrese codigo de estudiante a eliminar: '))
 
-    def agregar_materia():
-        pass
+        dao.eliminar_estudiante(cod_estudiante_del)
 
-    def eliminar_materia():
-        pass
 
     def generar_boletin():
         # mirar manejo de archivos 

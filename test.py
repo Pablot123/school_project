@@ -8,5 +8,8 @@ if __name__ == '__main__':
     cole = Escuela(12, 'hola', 'ddd', [],[],[])
     p = Estudiante('pablo',2, 2222, 4, '["matematicas"]', '[]')
     dani = Profesor('dani', 23, 33, 'Biologia', 3, 300000)
-
-    cole.contratar_profesor(dani)
+    #cole.matricular_estudiante(p)
+    #cole.expulsar_estudiante()
+    
+    #cole.contratar_profesor(dani)
+    cole.eliminar_profesor()
