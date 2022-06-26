@@ -3,7 +3,6 @@ from Estudiante import Estudiante
 from Escuela import Escuela
 from Materia import Materia
 from Profesor import Profesor
-#from BD.connection import DAO
 
 if __name__ == '__main__':
     nombre_escuela = input("Ingrese el nombre de la escuela: ")
