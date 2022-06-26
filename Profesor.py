@@ -38,12 +38,30 @@ class Profesor(Persona):
     
     def colocar_nota(self, estudiante, nota):
         estudiante.notas.append((self.materia, nota))
+        
+        
 
-    def lista_alumnos(self):
+
+    def lista_alumnos(self, data_resultados ):
         '''
-        [(1, 123, 'Monika', 10, '["Biologia","Matematicas","Quimica"]', '[]'), 
-        (2, 456, 'Niharika', 8, '["Matematicas", "Sociales", "Ingles"]', '[]'), 
-        (3, 789, 'Vishal', 3, '["Español","Matematicas","Biologia"]', '[]'), 
-        (4, 101, 'Amitabh', 5, '["Quimica","Fisica","Español"]', '[]')]
+        [(1, 123, 'Monika', 10,'[("Biologia", 5)]'), 
+        (2, 456, 'Niharika', 8,  '[("Matematicas", 4)]'), 
+        (3, 789, 'Vishal', 3,  '[]'), 
+        (4, 101, 'Amitabh', 5, '[]')]
         '''
-        pass
+        lista_x_grado=[]
+        for _,_,nombre,grado,_ in data_resultados:
+            if grado == self.grado:
+                lista_x_grado.append(nombre)
+            else:
+                pass
+        return  lista_x_grado
+        
+if __name__ == '__main__':
+    estudiantes =         [(1, 123, 'Monika', 10,[("Biologia", 5)]), 
+        (2, 456, 'Niharika', 8,  [("Matematicas", 4)]), 
+        (3, 789, 'Vishal', 10,  []), 
+        (4, 101, 'Amitabh', 5, [])]
+    profesor1 = Profesor("Elkin",1234,2,"Biologia",10,1000)
+    print(profesor1.lista_alumnos(estudiantes))
+    
