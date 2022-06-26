@@ -1,8 +1,7 @@
-'''
-
-'''
+from BD.connection import DAO
+from Estudiante import Estudiante
 class Escuela:
-    def __init__(self, id, nombre, direccion, profesores, alumnos, materias) -> None:
+    def __init__(self, id, nombre, direccion, profesores=[], alumnos=[], materias=[]) -> None:
         self.__id = id # llave primaria
         self.__nombre = nombre
         self.__direccion = direccion
@@ -35,24 +34,33 @@ class Escuela:
     
     @property
     def profesores(self):
-        return self._profesores
+        dao = DAO()
+        profes = dao.lista_profesores()
+        return profes
     
     @property
     def alumnos(self):
-        return self._alumnos
+        dao = DAO()
+        alumnos = dao.lista_estudiantes()
+        return alumnos
     
     @property
     def materias(self):
-        return self._materias
+        dao = DAO()
+        materias = dao.lista_materias()
+        return materias
     
-    def agregar_profesor():
-        pass
+    def contratar_profesor(self, profesor):
+        dao = DAO()
+        dao.agregar_profesor(profesor)
 
     def eliminar_profesor():
         pass
 
-    def matricular_estudiante():
-        pass
+    def matricular_estudiante(self, estudiante):
+        dao = DAO()
+        dao.agregar_estudiante(estudiante)
+        
 
     def expulsar_estudiante():
         pass
@@ -62,6 +70,13 @@ class Escuela:
 
     def eliminar_materia():
         pass
+
     def generar_boletin():
         # mirar manejo de archivos 
         pass
+
+if __name__ == '__main__':
+    cole = Escuela(12, 'hola', 'ddd', [],[],[])
+    p = Estudiante('pablo',2, 2222, 4, '["matematicas"]', '[]')
+    
+    #cole.matricular_estudiante(p)

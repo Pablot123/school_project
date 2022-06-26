@@ -1,5 +1,3 @@
-from hashlib import new
-from select import select
 from Materia import Materia
 from Persona import Persona
 '''
