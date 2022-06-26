@@ -73,12 +73,20 @@ class Escuela:
         dao.eliminar_estudiante(cod_estudiante_del)
 
 
-    def generar_boletin():
+    def generar_boletin(self,estudiante):
         # mirar manejo de archivos 
-        pass
+        entrada = open(f'boletin_{estudiante.nombre}.txt','a')
+        i=0
+        for materia in (estudiante.materias):
+            entrada.write(f"{materia}   {estudiante.notas[i][1]} \n")
+            i+=1
+        
+        entrada.write(f"Promedio notas {estudiante.promedio_notas()}")  
+        entrada.close()
 
 if __name__ == '__main__':
     cole = Escuela(12, 'hola', 'ddd', [],[],[])
-    p = Estudiante('pablo',2, 2222, 4, '["matematicas"]', '[]')
+    p = Estudiante('pablo',2, 2222, 4, ["matematicas","biologia"], [("matematicas",5),("biologia",4)])
+    cole.generar_boletin(p)
     
     #cole.matricular_estudiante(p)

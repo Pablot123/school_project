@@ -1,5 +1,6 @@
 import mysql.connector
 from mysql.connector import Error
+import mysql
 class DAO:
     def __init__(self) -> None:
 

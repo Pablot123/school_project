@@ -1,3 +1,5 @@
+from hashlib import new
+from select import select
 from Materia import Materia
 from Persona import Persona
 '''
@@ -10,6 +12,14 @@ y el promedio que tiene
 '''
 
 class Estudiante(Persona):
+    #codigo = id de mysql 
+    #id= cédula de la persona
+    """
+        0 = estudiante 
+        1= profesor 
+        2 = materia
+        
+    """
     def __init__(self, nombre, codigo, id, grado, materias, notas=[]) -> None:
         Persona.__init__(self, nombre, codigo, id)
         self._grado = grado
@@ -36,6 +46,7 @@ class Estudiante(Persona):
         for _ , nota in self.notas:
             promedio +=nota
         promedio = promedio/len(self.notas)
+        return promedio
         print(f'Su promedio de notas es: {promedio}')
     
     def __str__(self) -> str:
