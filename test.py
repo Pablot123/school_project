@@ -7,7 +7,7 @@ from Profesor import Profesor
 if __name__ == '__main__':
     #pablo = Estudiante('Pablo', 12, 11, 7, 'hola')
     cole = Escuela(12, 'hola', 'ddd', [],[],[])
-    p = Estudiante('pablo',2, 2222, 4, '["matematicas"]', '[]')
+    p = Estudiante('pablo',2, 2222, 4, '[]')
     dani = Profesor('dani', 23, 33, 'Biologia', 3, 300000)
     #cole.matricular_estudiante(p)
     #cole.expulsar_estudiante()

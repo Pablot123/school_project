@@ -28,7 +28,7 @@ class DAO:
         if self.conexion.is_connected():
             try:
                 cursor = self.conexion.cursor()
-                sql = f'INSERT INTO Estudiante (ID, NOMBRE, GRADE, MATERIAS, NOTAS) VALUE ({estu.id}, \'{estu.nombre}\', {estu.grado}, \'{estu.materias}\', \'{estu.notas}\')'
+                sql = f'INSERT INTO Estudiante (ID, NOMBRE, GRADE, NOTAS) VALUE ({estu.id}, \'{estu.nombre}\', {estu.grado}, \'{estu.notas}\')'
                 cursor.execute(sql)
                 self.conexion.commit()
                 print('Registro de estudiante, exitoso')
@@ -50,7 +50,7 @@ class DAO:
         if self.conexion.is_connected():
             try:
                 cursor = self.conexion.cursor()
-                sql = f'UPDATE estudiante SET id = {estudiante.id}, nombre = \'{estudiante.nombre}\', grado={estudiante.grado}, materias = \'{estudiante.materias}\', notas = \'{estudiante.notas}\' WHERE codigo = {cod}'
+                sql = f'UPDATE estudiante SET id = {estudiante.id}, nombre = \'{estudiante.nombre}\', grado={estudiante.grado}, notas = \'{estudiante.notas}\' WHERE codigo = {cod}'
                 cursor.execute(sql)
                 self.conexion.commit()
                 print('Se ha eliminado estudiante de forma exitosa')
