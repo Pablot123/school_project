@@ -1,3 +1,4 @@
+from BD.connection import DAO
 from Estudiante import Estudiante
 from Escuela import Escuela
 from Profesor import Profesor
@@ -10,6 +11,7 @@ if __name__ == '__main__':
     dani = Profesor('dani', 23, 33, 'Biologia', 3, 300000)
     #cole.matricular_estudiante(p)
     #cole.expulsar_estudiante()
-    
+    dao = DAO()
+    print(dao.lista_estudiantes())
     #cole.contratar_profesor(dani)
-    cole.eliminar_profesor()
+    #cole.eliminar_profesor()

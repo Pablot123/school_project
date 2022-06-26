@@ -40,4 +40,10 @@ class Profesor(Persona):
         estudiante.notas.append((self.materia, nota))
 
     def lista_alumnos(self):
+        '''
+        [(1, 123, 'Monika', 10, '["Biologia","Matematicas","Quimica"]', '[]'), 
+        (2, 456, 'Niharika', 8, '["Matematicas", "Sociales", "Ingles"]', '[]'), 
+        (3, 789, 'Vishal', 3, '["Español","Matematicas","Biologia"]', '[]'), 
+        (4, 101, 'Amitabh', 5, '["Quimica","Fisica","Español"]', '[]')]
+        '''
         pass
