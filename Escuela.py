@@ -75,6 +75,7 @@ class Escuela:
 
     def generar_boletin(self,estudiante):
         # mirar manejo de archivos 
+        # faltaría codigo estudiante o nombre estudiante
         entrada = open(f'boletin_{estudiante.nombre}.txt','a')
         i=0
         for materia in (estudiante.materias):

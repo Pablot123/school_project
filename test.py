@@ -25,14 +25,43 @@ if __name__ == '__main__':
                                 """))
         if opcion_profesor==1:
             print("agregar profesor")
-            profesor=Profesor()
-            nombre_profesor=input()
-            id_profesor=input()
-            materia_profesor=input()
-            grado_profesor=input()
-            salario_profesor=input()
+            nombre_profesor=input("Ingrese el nombre del profesor: ")
+            id_profesor=input("Ingrese el id del profesor: ")
+            materia_profesor=input("Ingrese la materia del profesor: ")
+            grado_profesor=int(input("Ingrese el grado del profesor: "))
+            salario_profesor=int(input("Ingrese salario del profesor: "))
+            profesor=Profesor(nombre_profesor,__,id_profesor,materia_profesor,grado_profesor,salario_profesor)
+            escuela.contratar_profesor(profesor)
             
-            escuela.contratar_profesor()
+        elif opcion_profesor==2:
+            print("actualizar profesor")
+            # profesor=Profesor()
+            # nombre_profesor=input()
+            # id_profesor=input()
+            # materia_profesor=input()
+            # grado_profesor=input()
+            # salario_profesor=input()
+            pass
+        elif opcion_profesor==3:
+            print("obtener datos profesor")
+            # profesor=Profesor()
+            # nombre_profesor=input()
+            # id_profesor=input()
+            # materia_profesor=input()
+            # grado_profesor=input()
+            # salario_profesor=input()
+            pass
+        elif opcion_profesor==4:
+            print("eliminar profesor")
+            # profesor=Profesor()
+            # nombre_profesor=input()
+            # id_profesor=input()
+            # materia_profesor=input()
+            # grado_profesor=input()
+            # salario_profesor=input()
+            escuela.eliminar_profesor()
+        else: print ("La opcion de profesores no es valida")
+
     elif opcion==2:
         opcion_estudiante = int(input(f"""
                                 Elija una opcion para los estudiantes:
@@ -40,7 +69,56 @@ if __name__ == '__main__':
                                 2. Actualizar estudiantes
                                 3. Obtener datos estudiantes 
                                 4. Eliminar estudiantes
+                                5. Obtener boletin estudiante en ,txt
                                 """))
+        if opcion_estudiante==1:
+            print("agregar estudiante")
+            nombre_profesor=input("Ingrese el nombre del profesor: ")
+            id_profesor=input("Ingrese el id del profesor: ")
+            materia_profesor=input("Ingrese la materia del profesor: ")
+            grado_profesor=int(input("Ingrese el grado del profesor: "))
+            salario_profesor=int(input("Ingrese salario del profesor: "))
+            profesor=Profesor(nombre_profesor,__,id_profesor,materia_profesor,grado_profesor,salario_profesor)
+            escuela.contratar_profesor(profesor)
+            
+        elif opcion_estudiante==2:
+            print("actualizar estudiante")
+            # profesor=Profesor()
+            # nombre_profesor=input()
+            # id_profesor=input()
+            # materia_profesor=input()
+            # grado_profesor=input()
+            # salario_profesor=input()
+            pass
+        elif opcion_estudiante==3:
+            print("obtener datos estudiante")
+            # profesor=Profesor()
+            # nombre_profesor=input()
+            # id_profesor=input()
+            # materia_profesor=input()
+            # grado_profesor=input()
+            # salario_profesor=input()
+            pass
+        elif opcion_estudiante==4:
+            print("eliminar estudiante")
+            # profesor=Profesor()
+            # nombre_profesor=input()
+            # id_profesor=input()
+            # materia_profesor=input()
+            # grado_profesor=input()
+            # salario_profesor=input()
+            escuela.eliminar_profesor()
+        elif opcion_estudiante==5:
+            print("obtener boletin estudiante en .txt")
+            # profesor=Profesor()
+            # nombre_profesor=input()
+            # id_profesor=input()
+            # materia_profesor=input()
+            # grado_profesor=input()
+            # salario_profesor=input()
+            escuela.eliminar_profesor()
+        else: print ("La opcion de estudiante no es valida")
+        
     else: print ("La opcion no es valida")
         
         
