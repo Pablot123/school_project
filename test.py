@@ -29,7 +29,7 @@ if __name__ == '__main__':
             materia_profesor=input("Ingrese la materia del profesor: ")
             grado_profesor=int(input("Ingrese el grado del profesor: "))
             salario_profesor=int(input("Ingrese salario del profesor: "))
-            profesor=Profesor(nombre_profesor,__,id_profesor,materia_profesor,grado_profesor,salario_profesor)
+            profesor=Profesor(nombre_profesor,id_profesor,materia_profesor,grado_profesor,salario_profesor)
             escuela.contratar_profesor(profesor)
             
         elif opcion_profesor==2:
@@ -77,7 +77,7 @@ if __name__ == '__main__':
             materia_profesor=input("Ingrese la materia del profesor: ")
             grado_profesor=int(input("Ingrese el grado del profesor: "))
             salario_profesor=int(input("Ingrese salario del profesor: "))
-            profesor=Profesor(nombre_profesor,__,id_profesor,materia_profesor,grado_profesor,salario_profesor)
+            profesor=Profesor(nombre_profesor,id_profesor,materia_profesor,grado_profesor,salario_profesor)
             escuela.contratar_profesor(profesor)
             
         elif opcion_estudiante==2:
