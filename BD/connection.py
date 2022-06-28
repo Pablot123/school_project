@@ -90,8 +90,16 @@ class DAO:
             except Error as ex:
                 print(f'error al intentar conexion: {ex}')
     
-    def actualizar_profesor(self, cod):
-        pass
+    def actualizar_profesor(self, profesor, cod):
+        if self.conexion.is_connected():
+            try:
+                cursor = self.conexion.cursor()
+                sql = f'UPDATE profesor SET id = {profesor.id}, nombre = \'{profesor.nombre}\', grado={profesor.grado}, materia = \'{profesor.materia}\', salario ={profesor.salario} WHERE codigo = {cod}'
+                cursor.execute(sql)
+                self.conexion.commit()
+                print('Se ha eliminado estudiante de forma exitosa')
+            except Error as ex:
+                print(f'error al intentar conexion: {ex}')
     
     #-------CRUD MATERIAS--------
     def lista_materias(self):
