@@ -120,16 +120,6 @@ if __name__ == '__main__':
         
     else: print ("La opcion no es valida")
         
-        
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     # #pablo = Estudiante('Pablo', 12, 11, 7, 'hola')
     # cole = Escuela(12, 'hola', 'ddd', [],[],[])
