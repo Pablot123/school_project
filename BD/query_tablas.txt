@@ -12,10 +12,10 @@ CREATE TABLE Estudiante (
 
 INSERT INTO Estudiante 
 	(CODIGO, ID, NOMBRE, GRADE, NOTAS) VALUES
-		(001, 123, 'Monika', 10, '[]'),
-		(002, 456, 'Niharika', 8, '[]'),
-		(003, 789, 'Vishal', 3, '[]'),
-		(004, 101, 'Amitabh', 5, '[]');
+		(001, 123, 'Monika', 10, ''),
+		(002, 456, 'Niharika', 8, ''),
+		(003, 789, 'Vishal', 3, ''),
+		(004, 101, 'Amitabh', 5, '');
 
 CREATE TABLE Profesor (
 	CODIGO INT PRIMARY KEY AUTO_INCREMENT,

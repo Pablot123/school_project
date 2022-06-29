@@ -13,27 +13,27 @@ class Profesor(Persona):
 
     def __init__(self, nombre, codigo, id, materia, grado, salario) -> None:
         Persona.__init__(self, nombre, codigo, id)
-        self._grado = grado
-        self._materia = materia
-        self._salario = salario
+        self.__grado = grado
+        self.__materia = materia
+        self.__salario = salario
 
     @property
     def materia(self):
-        return self._materia
+        return self.__materia
     @materia.setter
     def materia(self, materia):
-        self._materia = materia
+        self.__materia = materia
     
     @property
     def salario(self):
-        return self._salario
+        return self.__salario
     @salario.setter
     def salario(self, salario):
-        self._salario = salario
+        self.__salario = salario
     
     @property
     def grado(self):
-        return self._grado
+        return self.__grado
     
     
     def colocar_nota(self, estudiante, nota):
@@ -44,7 +44,6 @@ class Profesor(Persona):
             return estudiante
         else:
             estudiante.notas = estudiante.notas.replace(']', f', {str((self.materia, nota))}]')
-            #estudiante.notas += f', {str((self.materia, nota))}'
             return estudiante
         
         

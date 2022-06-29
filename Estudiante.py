@@ -18,21 +18,21 @@ class Estudiante(Persona):
         2 = materia
         
     """
-    def __init__(self, nombre, codigo, id, grado, notas=None) -> None:
+    def __init__(self, nombre, codigo, id, grado, notas='') -> None:
         Persona.__init__(self, nombre, codigo, id)
-        self._grado = grado
-        self._notas = notas #Las notas vienen por tuplas 
+        self.__grado = grado
+        self.__notas = notas #Las notas vienen por tuplas 
 
     @property
     def grado(self):
-        return self._grado
+        return self.__grado
 
     @property
     def notas(self):
-        return self._notas
+        return self.__notas
     @notas.setter
     def notas(self, notas):
-        self._notas = notas
+        self.__notas = notas
 
     def promedio_notas(self):
         promedio = 0

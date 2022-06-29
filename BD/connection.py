@@ -52,8 +52,6 @@ class DAO:
                 cursor = self.conexion.cursor()
 
                 sql = f'UPDATE estudiante SET id = {estudiante.id}, nombre = \'{estudiante.nombre}\', grade={estudiante.grado}, notas = \"{estudiante.notas}\" WHERE codigo = {cod}'
-                print(estudiante.notas)
-                print(sql)
                 cursor.execute(sql)
                 self.conexion.commit()
                 print('Se ha actualizado el estudiante de forma exitosa')

@@ -1,14 +1,14 @@
 class Materia:
     def __init__(self, nombre, codigo) -> None:
-        self._nombre = nombre
+        self.__nombre = nombre
         self.__codigo = codigo
     
     @property
     def nombre(self):
-        return self._nombre
+        return self.__nombre
     @nombre.setter
     def nombre(self, nombre):
-        self._nombre = nombre
+        self.__nombre = nombre
 
     @property
     def codigo(self):

@@ -5,9 +5,9 @@ class Escuela:
         self.__id = id # llave primaria
         self.__nombre = nombre
         self.__direccion = direccion
-        self._profesores = profesores #estos se pueden cambiar
-        self._alumnos = alumnos #estos se pueden cambiar
-        self._materias = materias #estos se pueden cambiar
+        self.__profesores = profesores #estos se pueden cambiar
+        self.__alumnos = alumnos #estos se pueden cambiar
+        self.__materias = materias #estos se pueden cambiar
     
     # __del__ es el metodo desstructor
     #Getters and Setters
@@ -76,19 +76,23 @@ class Escuela:
     def generar_boletin(self,estudiante):
         # mirar manejo de archivos 
         # faltaría codigo estudiante o nombre estudiante
-        entrada = open(f'boletin_{estudiante.nombre}.txt','a')
-        i=0
-        notas = list(eval(estudiante.notas))
-        for materia, nota in notas:
-            entrada.write(f"{materia}   {nota} \n")
-            i+=1
-        
-        entrada.write(f"Promedio notas {estudiante.promedio_notas()}")  
-        entrada.close()
+        if len(estudiante.notas) != 0:
+            entrada = open(f'boletin_{estudiante.nombre}.txt','a')
+            i=0
+
+            notas = list(eval(estudiante.notas))
+            for materia, nota in notas:
+                entrada.write(f"{materia}   {nota} \n")
+                i+=1
+            
+            entrada.write(f"Promedio notas {estudiante.promedio_notas()}")  
+            entrada.close()
+        else:
+            print(f'el estudiante {estudiante.nombre} no tiene notas actualmente')
 
 if __name__ == '__main__':
     cole = Escuela(12, 'hola', 'ddd', [],[],[])
-    p = Estudiante('pablo',2, 2222, 4, ["matematicas","biologia"], [("matematicas",5),("biologia",4)])
+    p = Estudiante('pablo',2, 2222, 4, [("matematicas",5),("biologia",4)])
     cole.generar_boletin(p)
     
     #cole.matricular_estudiante(p)
