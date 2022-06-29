@@ -17,6 +17,7 @@ class Profesor(Persona):
         self.__materia = materia
         self.__salario = salario
 
+    #Métodos getter and setter para algunos atributos
     @property
     def materia(self):
         return self.__materia
@@ -36,6 +37,11 @@ class Profesor(Persona):
         return self.__grado
     
     
+    """
+        Esto es para colocar  una nota al estudiante en la tupla que indica la materia del profesor y la nota asignada a esa materia
+    
+    
+    """
     def colocar_nota(self, estudiante, nota):
         if len(estudiante.notas) == 0:
             estudiante.notas = (self.materia, nota)
@@ -45,7 +51,15 @@ class Profesor(Persona):
         else:
             estudiante.notas = estudiante.notas.replace(']', f', {str((self.materia, nota))}]')
             return estudiante
-        
+     
+      
+    """Método estático para sacar la lista de alumnos 
+    
+    Keyword arguments:
+    data_resultados -- Los datos de la BD mysql 
+    Return: Lista con los datos de los estudiantes
+    """
+      
         
     @classmethod
     def lista_alumnos(self, data_resultados, grado_in):
@@ -63,6 +77,7 @@ class Profesor(Persona):
                 pass
         return  lista_x_grado
         
+#Para probar  
 if __name__ == '__main__':
     estudiantes =         [(1, 123, 'Monika', 10,[("Biologia", 5)]), 
         (2, 456, 'Niharika', 8,  [("Matematicas", 4)]), 

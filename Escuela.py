@@ -1,5 +1,15 @@
 from BD.connection import DAO
 from Estudiante import Estudiante
+
+"""
+    Escuela es la clase principal de nuestro programa , a partir de ella se puede hacer parte del crud para los estudiantes y profesores y crear una especie de boletín con las notas de los estudiantes
+    Mediante esta accedo a otras clases como estudiante o profesor
+    
+    
+
+    Returns:
+        La clase principal de nuestro programa
+"""
 class Escuela:
     def __init__(self, id, nombre, direccion, profesores=[], alumnos=[], materias=[]) -> None:
         self.__id = id # llave primaria
@@ -32,6 +42,8 @@ class Escuela:
     def direccion(self, direccion):
         self.__direccion = direccion
     
+    
+    ## Se usa DAO para  acceder a la base de datos y traeer los profesors 
     @property
     def profesores(self):
         dao = DAO()
@@ -50,6 +62,8 @@ class Escuela:
         materias = dao.lista_materias()
         return materias
     
+    
+    ## Método para contratar un profesor 
     def contratar_profesor(self, profesor):
         dao = DAO()
         dao.agregar_profesor(profesor)
@@ -60,11 +74,12 @@ class Escuela:
         cod_profesor_del = int(input('ingrese codigo del profesor a eliminar: '))
         dao.eliminar_profesor(cod_profesor_del)
 
+    #Añadir un estudiante a la lista 
     def matricular_estudiante(self, estudiante):
         dao = DAO()
         dao.agregar_estudiante(estudiante)
         
-
+    #Eliminar un estudiante de la lista 
     def expulsar_estudiante(self):
         dao = DAO()
         #Mostar una lista con los estudiantes, viendo su codigo
@@ -74,22 +89,23 @@ class Escuela:
 
 
     def generar_boletin(self,estudiante):
-        # mirar manejo de archivos 
-        # faltaría codigo estudiante o nombre estudiante
+        #Se mira si el boletín si existe o si el estudiante si tiene notas 
         if len(estudiante.notas) != 0:
-            entrada = open(f'boletin_{estudiante.nombre}.txt','a')
+            entrada = open(f'boletin_{estudiante.nombre}.txt','a') #abro el archivo en modo escritura sin sobreescribir 
             i=0
 
-            notas = list(eval(estudiante.notas))
+            notas = list(eval(estudiante.notas)) ## Paso de un string a una lista de tuplas [(),()]
             for materia, nota in notas:
-                entrada.write(f"{materia}   {nota} \n")
+                entrada.write(f"{materia}   {nota} \n") #escribo la materia en el archivo 
                 i+=1
             
-            entrada.write(f"Promedio notas {estudiante.promedio_notas()}")  
-            entrada.close()
+            entrada.write(f"Promedio notas {estudiante.promedio_notas()}")    #escribo el promedio de lasn otas del estudiante 
+            entrada.close() #cierro el buffer 
         else:
-            print(f'el estudiante {estudiante.nombre} no tiene notas actualmente')
+            print(f'el estudiante {estudiante.nombre} no tiene notas actualmente') 
 
+
+# Para hacer pruebas 
 if __name__ == '__main__':
     cole = Escuela(12, 'hola', 'ddd', [],[],[])
     p = Estudiante('pablo',2, 2222, 4, [("matematicas",5),("biologia",4)])

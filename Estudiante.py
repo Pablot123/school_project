@@ -12,17 +12,13 @@ y el promedio que tiene
 class Estudiante(Persona):
     #codigo = id de mysql 
     #id= cédula de la persona
-    """
-        0 = estudiante 
-        1= profesor 
-        2 = materia
-        
-    """
+
     def __init__(self, nombre, codigo, id, grado, notas='') -> None:
         Persona.__init__(self, nombre, codigo, id)
         self.__grado = grado
         self.__notas = notas #Las notas vienen por tuplas 
 
+    #métodos getter para lagunos atributos 
     @property
     def grado(self):
         return self.__grado
@@ -30,10 +26,12 @@ class Estudiante(Persona):
     @property
     def notas(self):
         return self.__notas
+    #Métodos setter para algunas atributos
     @notas.setter
     def notas(self, notas):
         self.__notas = notas
 
+    # Para sacar el promedio de notas de un estudiante 
     def promedio_notas(self):
         promedio = 0
         notas = list(eval(self.notas))
@@ -42,11 +40,8 @@ class Estudiante(Persona):
         promedio = promedio/len(notas)
         return promedio
         
-    
-    def __str__(self) -> str:
-        estudiante=f"El estudiante {self.nombre} del grado {self.grado} "
-        return estudiante
 
+#Para probar 
 if __name__ == '__main__':
     estudiante1 = Estudiante("Juan",1234,5678,8,[("matematica",4),("biologia",5)])
     print(estudiante1)
