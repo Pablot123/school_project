@@ -94,7 +94,12 @@ class Escuela:
             entrada = open(f'boletin_{estudiante.nombre}.txt','a') #abro el archivo en modo escritura sin sobreescribir 
             i=0
 
+
             notas = list(eval(estudiante.notas)) ## Paso de un string a una lista de tuplas [(),()]
+
+            entrada.write(f'----BOLETIN ESCUELA {self.nombre}----')
+            notas = list(eval(estudiante.notas))
+
             for materia, nota in notas:
                 entrada.write(f"{materia}   {nota} \n") #escribo la materia en el archivo 
                 i+=1

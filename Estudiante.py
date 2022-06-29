@@ -10,9 +10,12 @@ y el promedio que tiene
 '''
 
 class Estudiante(Persona):
+
     #codigo = id de mysql 
     #id= cédula de la persona
 
+
+ 
     def __init__(self, nombre, codigo, id, grado, notas='') -> None:
         Persona.__init__(self, nombre, codigo, id)
         self.__grado = grado
