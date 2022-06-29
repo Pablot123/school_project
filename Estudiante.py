@@ -38,7 +38,7 @@ class Estudiante(Persona):
             promedio +=nota
         promedio = promedio/len(self.notas)
         return promedio
-        print(f'Su promedio de notas es: {promedio}')
+        
     
     def __str__(self) -> str:
         estudiante=f"El estudiante {self.nombre} del grado {self.grado} "

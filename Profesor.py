@@ -40,9 +40,8 @@ class Profesor(Persona):
         estudiante.notas.append((self.materia, nota))
         
         
-
-
-    def lista_alumnos(self, data_resultados ):
+    @classmethod
+    def lista_alumnos(self, data_resultados, grado_in):
         '''
         [(1, 123, 'Monika', 10,'[("Biologia", 5)]'), 
         (2, 456, 'Niharika', 8,  '[("Matematicas", 4)]'), 
@@ -51,7 +50,7 @@ class Profesor(Persona):
         '''
         lista_x_grado=[]
         for _,_,nombre,grado,_ in data_resultados:
-            if grado == self.grado:
+            if grado == grado_in:
                 lista_x_grado.append(nombre)
             else:
                 pass

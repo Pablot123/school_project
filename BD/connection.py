@@ -50,10 +50,10 @@ class DAO:
         if self.conexion.is_connected():
             try:
                 cursor = self.conexion.cursor()
-                sql = f'UPDATE estudiante SET id = {estudiante.id}, nombre = \'{estudiante.nombre}\', grado={estudiante.grado}, notas = \'{estudiante.notas}\' WHERE codigo = {cod}'
+                sql = f'UPDATE estudiante SET id = {estudiante.id}, nombre = \'{estudiante.nombre}\', grade={estudiante.grado}, notas = \'{estudiante.notas}\' WHERE codigo = {cod}'
                 cursor.execute(sql)
                 self.conexion.commit()
-                print('Se ha eliminado estudiante de forma exitosa')
+                print('Se ha actualizado el estudiante de forma exitosa')
             except Error as ex:
                 print(f'error al intentar conexion: {ex}')
 
@@ -94,10 +94,10 @@ class DAO:
         if self.conexion.is_connected():
             try:
                 cursor = self.conexion.cursor()
-                sql = f'UPDATE profesor SET id = {profesor.id}, nombre = \'{profesor.nombre}\', grado={profesor.grado}, materia = \'{profesor.materia}\', salario ={profesor.salario} WHERE codigo = {cod}'
+                sql = f'UPDATE profesor SET id = {profesor.id}, nombre = \'{profesor.nombre}\', grade={profesor.grado}, materia = \'{profesor.materia}\', salario ={profesor.salario} WHERE codigo = {cod}'
                 cursor.execute(sql)
                 self.conexion.commit()
-                print('Se ha eliminado estudiante de forma exitosa')
+                print('Se ha actualizado profesor de forma exitosa')
             except Error as ex:
                 print(f'error al intentar conexion: {ex}')
     
