@@ -37,7 +37,14 @@ class Profesor(Persona):
     
     
     def colocar_nota(self, estudiante, nota):
-        estudiante.notas.append((self.materia, nota))
+        if len(estudiante.notas) == 0:
+            estudiante.notas = (self.materia, nota)
+            estudiante.notas = str(estudiante.notas)
+
+            return estudiante
+        else:
+            estudiante.notas += f', {str((self.materia, nota))}'
+            return estudiante
         
         
     @classmethod

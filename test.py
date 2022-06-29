@@ -72,13 +72,13 @@ def list_est():
 def obtener_profesor(cod):
     for codigo, id_p, nombre_p, grado_p, materia_p, salario_p in dao.lista_profesores():
         if cod == codigo:
-            return id_p, nombre_p, grado_p, materia_p, salario_p
+            return Profesor( nombre_p, 0, id_p, materia_p, grado_p, salario_p)
 
 
 def obtener_estudiante(cod):
     for codigo, id_p, nombre_p, grado_p, notas_p in dao.lista_estudiantes():
         if codigo == cod:
-            return id_p, nombre_p, grado_p, notas_p
+            return Estudiante(nombre_p, 0, id_p, grado_p, notas_p)
 
 if __name__ == '__main__':
     nombre_escuela = input("Ingrese el nombre de la escuela: ")
@@ -88,7 +88,7 @@ if __name__ == '__main__':
 
     # p = Estudiante('pablo',2, 2222, 4, '[]')
     # dani = Profesor('daniel', 22,33,'biologia', 9, 200000)
-
+    #'[]'---['[',']', ]
     in_menu_principal = True
     in_menu_prof = False
     in_menu_est = False
@@ -106,8 +106,15 @@ if __name__ == '__main__':
                     grado = int(input('Ingrese el grado: '))
                     print(Profesor.lista_alumnos(dao.lista_estudiantes(), grado)) #posible mejora
                 elif opcion_profesor ==2:
-                    pass
-
+                    list_prof()
+                    codigo_p = int(input('ingrese el codigo del perofesor: '))
+                    profesor = obtener_profesor(codigo_p)
+                    list_est()
+                    codigo_est = int(input('Ingrese el codigo del estudiante a agregar nota: '))
+                    estudiante = obtener_estudiante(codigo_est)
+                    nota = float(input('ingrese la nota del estudiante: '))
+                    estudiante = profesor.colocar_nota(estudiante, nota)
+                    dao.actualizar_estudiante(estudiante, codigo_est)
                 elif opcion_profesor == 3:
                     in_menu_prof =False
                 elif opcion_profesor == 4:
@@ -122,7 +129,9 @@ if __name__ == '__main__':
             while in_menu_est:
                 opcion_estudiante = menu_estudiante()
                 if opcion_estudiante ==1:
-                    print('Opcion 1')
+                    cod_est = int(input('Ingrese su codigo: '))
+                    estudiante = obtener_estudiante(cod_est)
+                    print(f'Sus notas actuales son: {estudiante.notas}')
                 elif opcion_estudiante ==2:
                     print('opcion 2')
                 elif opcion_estudiante == 3:

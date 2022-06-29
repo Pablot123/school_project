@@ -18,7 +18,7 @@ class Estudiante(Persona):
         2 = materia
         
     """
-    def __init__(self, nombre, codigo, id, grado, notas=[]) -> None:
+    def __init__(self, nombre, codigo, id, grado, notas=None) -> None:
         Persona.__init__(self, nombre, codigo, id)
         self._grado = grado
         self._notas = notas #Las notas vienen por tuplas 
@@ -30,7 +30,9 @@ class Estudiante(Persona):
     @property
     def notas(self):
         return self._notas
-    #Le quite el metodo set a notas para que el estudiante no pueda cambiar la nota
+    @notas.setter
+    def notas(self, notas):
+        self._notas = notas
 
     def promedio_notas(self):
         promedio = 0
