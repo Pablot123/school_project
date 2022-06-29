@@ -1,9 +1,13 @@
 class Persona:
+    """
+    Clase padre de estudiante y profesor
+    """
     def __init__(self, nombre, codigo, id) -> None:
         self.__nombre = nombre
         self.__codigo = codigo
         self.__id = id
     
+    #----Metodos getter and setters privados
     @property
     def nombre(self):
         return self.__nombre

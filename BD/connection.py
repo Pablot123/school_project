@@ -14,6 +14,7 @@ class DAO:
         except Error as ex:
             print(f'error al intentar la conexion: {ex}')
     #-------CRUD ESTUDIANTES-----------
+    #---READ
     def lista_estudiantes(self):
         if self.conexion.is_connected():
             try:
@@ -23,34 +24,36 @@ class DAO:
                 return resultados
             except Error as ex:
                 print(f'error al intentar conexion: {ex}')
-    
+    #---CREATE
     def agregar_estudiante(self, estu):
         if self.conexion.is_connected():
             try:
                 cursor = self.conexion.cursor()
+                #Query para egrar un nuevo estudiante
                 sql = f'INSERT INTO Estudiante (ID, NOMBRE, GRADE, NOTAS) VALUE ({estu.id}, \'{estu.nombre}\', {estu.grado}, \'{estu.notas}\')'
                 cursor.execute(sql)
                 self.conexion.commit()
                 print('Registro de estudiante, exitoso')
             except Error as ex:
                 print(f'error al intentar conexion: {ex}')
-    
+    #--- DELETE
     def eliminar_estudiante(self, cod):
         if self.conexion.is_connected():
             try:
                 cursor = self.conexion.cursor()
+                #query para eliminar un estudiante dado el codigo de este
                 sql = f'DELETE FROM estudiante WHERE CODIGO = {cod}'
                 cursor.execute(sql)
                 self.conexion.commit()
                 print('Se ha eliminado estudiante de forma exitosa')
             except Error as ex:
                 print(f'error al intentar conexion: {ex}')
-    
+    #--- UPDATE
     def actualizar_estudiante(self, estudiante, cod):
         if self.conexion.is_connected():
             try:
                 cursor = self.conexion.cursor()
-
+                #query para actualizar estudiante dado el codigo
                 sql = f'UPDATE estudiante SET id = {estudiante.id}, nombre = \'{estudiante.nombre}\', grade={estudiante.grado}, notas = \"{estudiante.notas}\" WHERE codigo = {cod}'
                 cursor.execute(sql)
                 self.conexion.commit()
@@ -59,6 +62,7 @@ class DAO:
                 print(f'error al intentar conexion: {ex}')
 
     #------CRUD PROFESORES---------
+    #--- READ
     def lista_profesores(self):
         if self.conexion.is_connected():
             try:
@@ -68,11 +72,12 @@ class DAO:
                 return resultados
             except Error as ex:
                 print(f'error al intentar conexion: {ex}')
-    
+    #--- CREATE
     def agregar_profesor(self, profe):
         if self.conexion.is_connected():
             try:
                 cursor = self.conexion.cursor()
+                #query para agregar un nuevo profesor.
                 sql = f'INSERT INTO Profesor (ID, NOMBRE, GRADE, MATERIA, SALARIO) VALUE ({profe.id}, \'{profe.nombre}\', {profe.grado}, \'{profe.materia}\', {profe.salario})'
                 cursor.execute(sql)
                 self.conexion.commit()
@@ -80,6 +85,7 @@ class DAO:
             except Error as ex:
                 print(f'error al intentar conexion: {ex}')
     
+    #--- DELETE
     def eliminar_profesor(self, cod):
         if self.conexion.is_connected():
             try:
@@ -91,6 +97,7 @@ class DAO:
             except Error as ex:
                 print(f'error al intentar conexion: {ex}')
     
+    #--- UPDATE
     def actualizar_profesor(self, profesor, cod):
         if self.conexion.is_connected():
             try:

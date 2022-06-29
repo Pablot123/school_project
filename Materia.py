@@ -1,8 +1,9 @@
 class Materia:
+
     def __init__(self, nombre, codigo) -> None:
         self.__nombre = nombre
         self.__codigo = codigo
-    
+    #Getters and setters
     @property
     def nombre(self):
         return self.__nombre
