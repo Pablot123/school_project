@@ -79,7 +79,7 @@ class Escuela:
         if len(estudiante.notas) != 0:
             entrada = open(f'boletin_{estudiante.nombre}.txt','a')
             i=0
-
+            entrada.write(f'----BOLETIN ESCUELA {self.nombre}----')
             notas = list(eval(estudiante.notas))
             for materia, nota in notas:
                 entrada.write(f"{materia}   {nota} \n")
