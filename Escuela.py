@@ -78,8 +78,9 @@ class Escuela:
         # faltaría codigo estudiante o nombre estudiante
         entrada = open(f'boletin_{estudiante.nombre}.txt','a')
         i=0
-        for materia in (estudiante.materias):
-            entrada.write(f"{materia}   {estudiante.notas[i][1]} \n")
+        notas = list(eval(estudiante.notas))
+        for materia, nota in notas:
+            entrada.write(f"{materia}   {nota} \n")
             i+=1
         
         entrada.write(f"Promedio notas {estudiante.promedio_notas()}")  

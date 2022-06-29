@@ -39,11 +39,12 @@ class Profesor(Persona):
     def colocar_nota(self, estudiante, nota):
         if len(estudiante.notas) == 0:
             estudiante.notas = (self.materia, nota)
-            estudiante.notas = str(estudiante.notas)
+            estudiante.notas = f'[{str(estudiante.notas)}]'
 
             return estudiante
         else:
-            estudiante.notas += f', {str((self.materia, nota))}'
+            estudiante.notas = estudiante.notas.replace(']', f', {str((self.materia, nota))}]')
+            #estudiante.notas += f', {str((self.materia, nota))}'
             return estudiante
         
         

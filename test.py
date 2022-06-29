@@ -86,9 +86,6 @@ if __name__ == '__main__':
     codigo_escuela = input("Ingrese la direccion de la escuela: ")
     escuela = Escuela(codigo_escuela, nombre_escuela, direccion_escuela)
 
-    # p = Estudiante('pablo',2, 2222, 4, '[]')
-    # dani = Profesor('daniel', 22,33,'biologia', 9, 200000)
-    #'[]'---['[',']', ]
     in_menu_principal = True
     in_menu_prof = False
     in_menu_est = False
@@ -134,6 +131,9 @@ if __name__ == '__main__':
                     print(f'Sus notas actuales son: {estudiante.notas}')
                 elif opcion_estudiante ==2:
                     print('opcion 2')
+                    cod_est = int(input('Ingrese su codigo: '))
+                    estudiante = obtener_estudiante(cod_est)
+                    print(f'Su promedio actual de notas es: {estudiante.promedio_notas()}')
                 elif opcion_estudiante == 3:
                     in_menu_est =False
                 elif opcion_estudiante == 4:
@@ -171,7 +171,9 @@ if __name__ == '__main__':
                     escuela.expulsar_estudiante()
                 elif opcion_comi == 5:
                     list_est()
-                    cod_est = int(input('ingrese codigo del estudiante para generar boletion'))
+                    cod_est = int(input('ingrese codigo del estudiante para generar boletin: '))
+                    estudiante = obtener_estudiante(cod_est)
+                    escuela.generar_boletin(estudiante)
                 elif opcion_comi == 6:
                     print('opcion 6')
                     print("agregar profesor")

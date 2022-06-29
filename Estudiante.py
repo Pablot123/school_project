@@ -36,9 +36,10 @@ class Estudiante(Persona):
 
     def promedio_notas(self):
         promedio = 0
-        for _ , nota in self.notas:
+        notas = list(eval(self.notas))
+        for _ , nota in notas:
             promedio +=nota
-        promedio = promedio/len(self.notas)
+        promedio = promedio/len(notas)
         return promedio
         
     
